@@ -185,8 +185,3 @@ dashBoardScreen() {
     ),
   );
 }
-class AddRestaurant  {
-}
-class AddCategory{
-
-}
