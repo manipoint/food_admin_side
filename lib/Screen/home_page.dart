@@ -16,7 +16,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
-   List screen = [dashBoardScreen(),AddProduct(),];
+   List screen = [dashBoardScreen(),AddProduct(),AddRestaurant(),AddCategory()];
   @override
   Widget build(BuildContext context) {
     final appState = Provider.of<AppProvider>(context);
@@ -56,6 +56,18 @@ class _HomePageState extends State<HomePage> {
                     child: Text("Add Product"),
                   ),
                   ),
+              NavigationRailDestination(
+                  icon: SizedBox.shrink(),
+                  label: RotatedBox(
+                    quarterTurns: -1,
+                    child: Text("Restaurant"),
+                  )),
+              NavigationRailDestination(
+                  icon: SizedBox.shrink(),
+                  label: RotatedBox(
+                    quarterTurns: -1,
+                    child: Text("Category"),
+                  )),
               NavigationRailDestination(
                   icon: SizedBox.shrink(),
                   label: RotatedBox(
@@ -172,4 +184,9 @@ dashBoardScreen() {
       ],
     ),
   );
+}
+class AddRestaurant  {
+}
+class AddCategory{
+
 }
