@@ -2,12 +2,11 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:food_admin_side/Components/def_colors.dart';
-import 'package:food_admin_side/Providers/app_provider.dart';
+import 'package:food_admin_side/Screen/add_category.dart';
 import 'package:food_admin_side/Screen/add_product.dart';
+import 'package:food_admin_side/Screen/add_resturent.dart';
 import 'package:food_admin_side/Widgets/pie_chart.dart';
 import 'package:food_admin_side/Widgets/small_card.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -19,7 +18,7 @@ class _HomePageState extends State<HomePage> {
    List screen = [dashBoardScreen(),AddProduct(),AddRestaurant(),AddCategory()];
   @override
   Widget build(BuildContext context) {
-    final appState = Provider.of<AppProvider>(context);
+    //final appState = Provider.of<AppProvider>(context);
     return Scaffold(
         body: SafeArea(
       child: Row(
