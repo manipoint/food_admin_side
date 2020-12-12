@@ -38,6 +38,72 @@ class AuthProvider with ChangeNotifier {
     });
   }
 
+  Future<bool> logIn() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    try {
+      _status = Status.Authenticating;
+      notifyListeners();
+      await auth
+          .signInWithEmailAndPassword(
+              email: email.text.trim(), password: password.text.trim())
+          .then((value) async {
+        await preferences.setString("id", value.user.uid);
+      });
+      return true;
+    } catch (e) {
+      _status = Status.Unauthenticated;
+      notifyListeners();
+      print(e.toString());
+      return false;
+    }
+  }
+
+  Future<bool> signUp() async {
+    try {
+      _status = Status.Authenticating;
+      notifyListeners();
+      await auth
+          .createUserWithEmailAndPassword(
+              email: email.text.trim(), password: password.text.trim())
+          .then((result) async {
+        SharedPreferences preferences = await SharedPreferences.getInstance();
+        await preferences.setString("id", result.user.uid);
+        _userServices.createUser(
+            id: result.user.uid,
+            name: name.text.trim(),
+            email: email.text.trim());
+      });
+      return true;
+    } catch (e) {
+      _status = Status.Unauthenticated;
+      notifyListeners();
+      print(e.toString());
+      return false;
+    }
+  }
+
+  Future signOut() async {
+    auth.signOut();
+    _status = Status.Unauthenticated;
+    notifyListeners();
+    return Future.delayed(Duration.zero);
+  }
+
+  void clearController() {
+    name.text = "";
+    email.text = "";
+    password.text = "";
+  }
+
+  Future<void> reloadUser() async {
+    _userModel = await _userServices.getUserById(user.uid);
+    notifyListeners();
+  }
+
+  updateUser(Map<String,dynamic> data) async {
+     _userServices.updateUser(data);
+  }
+
   void _onStateChanged(User firebaseUser) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     if (firebaseUser == null) {

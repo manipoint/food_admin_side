@@ -7,3 +7,4 @@ const String RestaurantRoute = "restaurant";
 const String CategoryRoute = "category";
 const String PageControllerRoute = "page";
 const String LoginRoute = "login";
+const String SignupRoute = "signup";

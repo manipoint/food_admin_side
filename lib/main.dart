@@ -5,7 +5,7 @@ import 'package:food_admin_side/Helper/def_colors.dart';
 import 'package:food_admin_side/Providers/app_provider.dart';
 import 'package:food_admin_side/Providers/auth_provider.dart';
 import 'package:food_admin_side/Routes/custum_routs.dart';
-import 'package:food_admin_side/Screen/login.dart';
+import 'package:food_admin_side/Screen/login/login.dart';
 import 'package:food_admin_side/Widgets/layout_template.dart';
 import 'package:food_admin_side/Widgets/loading.dart';
 import 'package:provider/provider.dart';
