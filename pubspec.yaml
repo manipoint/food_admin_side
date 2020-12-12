@@ -25,12 +25,14 @@ dependencies:
     sdk: flutter
   provider: ^4.3.2+2
   shared_preferences: ^0.5.12+4
+  get_it: ^5.0.3
   fl_chart: ^0.12.0
   firebase_storage: ^5.2.0
   firebase_core: any
   firebase_auth: any
   cloud_firestore: any
   uuid: ^2.2.2
+  flutter_spinkit: ^4.1.2+1
   image_picker: ^0.6.7+15
   responsive_table: ^0.1.1+8
 

@@ -1,47 +1,82 @@
-import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:food_admin_side/Helper/constent.dart';
+import 'package:food_admin_side/Helper/def_colors.dart';
 import 'package:food_admin_side/Providers/app_provider.dart';
+import 'package:food_admin_side/Providers/auth_provider.dart';
+import 'package:food_admin_side/Routes/custum_routs.dart';
+import 'package:food_admin_side/Screen/login.dart';
+import 'package:food_admin_side/Widgets/layout_template.dart';
+import 'package:food_admin_side/Widgets/loading.dart';
 import 'package:provider/provider.dart';
 
-import 'Screen/home_page.dart';
+import 'locator.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  return runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider.value(value: AppProvider()),
-      ],
-      child: MyApp(),
-    )
-      );
+void main() {
+  setupLocator();
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider.value(
+      value: AppProvider.init(),
+    ),
+    ChangeNotifierProvider.value(
+      value: AuthProvider.initialize(),
+    ),
+  ], child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // TODO: implement build
+   // throw UnimplementedError();
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: HomePage(),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(primarySwatch: green),
+      onGenerateRoute: generateRoute,
     );
   }
 }
 
+class AppPagesController extends StatelessWidget {
+  const AppPagesController({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    return FutureBuilder(
+      future: initialization,
+      builder: (context, snapshot) {
+        //checking errors
+        if (snapshot.hasError) {
+          return Scaffold(
+            body: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [Text("SomeThing went Wrong")],
+            ),
+          );
+        }
+        //show application
+        if (snapshot.connectionState == ConnectionState.done) {
+          print(authProvider.status.toString());
+          switch (authProvider.status) {
+            case Status.Uninitialized:
+              return Loading();
+            case Status.Unauthenticated:
+            case Status.Authenticating:
+              return LoginPage();
+            case Status.Authenticated:
+              return LayoutTemplate();
+          }
+        }
+        return Scaffold(
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CircularProgressIndicator(),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}
