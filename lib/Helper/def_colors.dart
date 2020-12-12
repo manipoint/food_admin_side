@@ -9,3 +9,6 @@ const Color grey = Colors.grey;
 const Color black = Colors.black;
 const Color deepPurple = Colors.deepPurple;
 const Color green = Colors.green;
+
+Color active = Colors.orange[200];
+Color inActive = Colors.grey[200];

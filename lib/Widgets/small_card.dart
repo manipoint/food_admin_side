@@ -2,7 +2,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:food_admin_side/Components/def_colors.dart';
+import 'package:food_admin_side/Helper/def_colors.dart';
 
 class SmallCard extends StatefulWidget {
   final IconData icon;

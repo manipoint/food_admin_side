@@ -21,91 +21,98 @@ class _HomePageState extends State<HomePage> {
     //final appState = Provider.of<AppProvider>(context);
     return Scaffold(
         body: SafeArea(
-      child: Row(
-        children: [
-          NavigationRail(
-            minWidth: 74,
-            backgroundColor: Colors.grey.shade200,
-            leading: Column(
-              children: [
-                SizedBox(
-                  height: 20,
-                ),
-                Center(
-                  child: CircleAvatar(
-                    radius: 22,
-                  ),
-                ),
-              ],
-            ),
-            destinations: [
-              NavigationRailDestination(
-                  icon: Icon(
+          child: ListView(
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.height,
+                child: Row(
+                  children: [
+                    NavigationRail(
+                      minWidth: 74,
+                      backgroundColor: Colors.grey.shade200,
+                      leading: Column(
+                        children: [
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Center(
+                            child: CircleAvatar(
+                              radius: 22,
+                            ),
+                          ),
+                        ],
+                      ),
+                      destinations: [
+                        NavigationRailDestination(
+                            icon: Icon(
 
-                    Icons.dashboard,
-                    size: 30,
-                    color: Colors.blue,
-                  ),
-                  label: Text(""),
+                              Icons.dashboard,
+                              size: 30,
+                              color: Colors.blue,
+                            ),
+                            label: Text(""),
+                          ),
+                        NavigationRailDestination(
+                            icon: SizedBox.shrink(),
+                            label: RotatedBox(
+                              quarterTurns: -1,
+                              child: Text("Add Product"),
+                            ),
+                            ),
+                        NavigationRailDestination(
+                            icon: SizedBox.shrink(),
+                            label: RotatedBox(
+                              quarterTurns: -1,
+                              child: Text("Restaurant"),
+                            )),
+                        NavigationRailDestination(
+                            icon: SizedBox.shrink(),
+                            label: RotatedBox(
+                              quarterTurns: -1,
+                              child: Text("Category"),
+                            )),
+                        NavigationRailDestination(
+                            icon: SizedBox.shrink(),
+                            label: RotatedBox(
+                              quarterTurns: -1,
+                              child: Text("Orders"),
+                            )),
+                        NavigationRailDestination(
+                            icon: SizedBox.shrink(),
+                            label: RotatedBox(
+                              quarterTurns: -1,
+                              child: Text("Sighup"),
+                            ))
+                      ],
+                      labelType: NavigationRailLabelType.all,
+                      selectedIndex: _selectedIndex,
+                      onDestinationSelected: (int index) {
+                        setState(() {
+                          _selectedIndex = index;
+                        });
+                      },
+
+                      unselectedLabelTextStyle:
+                          TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+                      selectedLabelTextStyle: TextStyle(
+                        // decorationThickness: 10.0,
+                        height: 3.0,
+                        wordSpacing: 4.0,
+                        color: Colors.red,
+                        letterSpacing: 1.0,
+                        fontWeight: FontWeight.bold,
+                        //decoration: TextDecoration.underline,
+                      ),
+
+                    ),
+                   Expanded(child: screen[_selectedIndex]),
+
+                  ],
                 ),
-              NavigationRailDestination(
-                  icon: SizedBox.shrink(),
-                  label: RotatedBox(
-                    quarterTurns: -1,
-                    child: Text("Add Product"),
-                  ),
-                  ),
-              NavigationRailDestination(
-                  icon: SizedBox.shrink(),
-                  label: RotatedBox(
-                    quarterTurns: -1,
-                    child: Text("Restaurant"),
-                  )),
-              NavigationRailDestination(
-                  icon: SizedBox.shrink(),
-                  label: RotatedBox(
-                    quarterTurns: -1,
-                    child: Text("Category"),
-                  )),
-              NavigationRailDestination(
-                  icon: SizedBox.shrink(),
-                  label: RotatedBox(
-                    quarterTurns: -1,
-                    child: Text("Orders"),
-                  )),
-              NavigationRailDestination(
-                  icon: SizedBox.shrink(),
-                  label: RotatedBox(
-                    quarterTurns: -1,
-                    child: Text("Sighup"),
-                  ))
+              ),
             ],
-            labelType: NavigationRailLabelType.all,
-            selectedIndex: _selectedIndex,
-            onDestinationSelected: (int index) {
-              setState(() {
-                _selectedIndex = index;
-              });
-            },
-
-            unselectedLabelTextStyle:
-                TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
-            selectedLabelTextStyle: TextStyle(
-              // decorationThickness: 10.0,
-              height: 3.0,
-              wordSpacing: 4.0,
-              color: Colors.red,
-              letterSpacing: 1.0,
-              fontWeight: FontWeight.bold,
-              //decoration: TextDecoration.underline,
-            ),
-
           ),
-         Expanded(child: screen[_selectedIndex]),
-
-        ],
-      ),
-    ));
+        ));
     // ignore: dead_code
   }
 
