@@ -32,6 +32,7 @@ dependencies:
   firebase_auth: any
   cloud_firestore: any
   uuid: ^2.2.2
+  responsive_builder: ^0.3.0
   flutter_spinkit: ^4.1.2+1
   image_picker: ^0.6.7+15
   responsive_table: ^0.1.1+8
