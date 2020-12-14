@@ -21,16 +21,16 @@ class SignUp extends StatelessWidget {
           : Scaffold(
               body: Center(
                 child: Container(
-                  color: red,
+                 // color: red,
                   child: Container(
                     decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8),
+                        color: Colors.green[200],
+                        borderRadius: BorderRadius.circular(12),
                         boxShadow: [
                           BoxShadow(
-                              color: Colors.grey,
+                              color: Colors.lightGreen,
                               offset: Offset(0, 3),
-                              blurRadius: 24)
+                              blurRadius: 10)
                         ]),
                     height: 420,
                     width: 350,
@@ -48,7 +48,7 @@ class SignUp extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20),
                           child: Container(
-                            decoration: BoxDecoration(color: Colors.grey[200]),
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(12),color: Colors.grey[200]),
                             child: Padding(
                               padding: const EdgeInsets.only(left: 8.0),
                               child: TextField(
@@ -67,7 +67,7 @@ class SignUp extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20),
                           child: Container(
-                            decoration: BoxDecoration(color: Colors.grey[200]),
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(12),color: Colors.grey[200]),
                             child: Padding(
                               padding: const EdgeInsets.only(left: 8.0),
                               child: TextField(
@@ -86,7 +86,7 @@ class SignUp extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20),
                           child: Container(
-                            decoration: BoxDecoration(color: Colors.grey[200]),
+                            decoration: BoxDecoration(color: Colors.grey[200],borderRadius: BorderRadius.circular(12)),
                             child: Padding(
                               padding: const EdgeInsets.only(left: 8.0),
                               child: TextField(
@@ -105,7 +105,7 @@ class SignUp extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20.0),
                           child: Container(
-                            decoration: BoxDecoration(color: Colors.indigo),
+                            decoration: BoxDecoration(color: Colors.indigo,borderRadius: BorderRadius.circular(12)),
                             child: FlatButton(
                               onPressed: () async {
                                 if (!await authProvider.signUp()) {
@@ -127,7 +127,7 @@ class SignUp extends StatelessWidget {
                                   children: [
                                     MyText(
                                       text: "REGISTER",
-                                      size: 22,
+                                      size: 20,
                                       color: Colors.white,
                                       weight: FontWeight.bold,
                                     ),
@@ -138,24 +138,28 @@ class SignUp extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(right: 20),
+                          padding: const EdgeInsets.only(right: 20,top: 8),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               MyText(
-                                text: "Already have an account? ",
-                                size: 16,
-                                color: Colors.grey,
+                                text: "Have an account? ",
+                                size: 18,
+                                color: Colors.white,
                               ),
                               GestureDetector(
                                   onTap: () {
                                     locator<NavigationService>()
                                         .globelNavigatorTo(LoginRoute, context);
                                   },
-                                  child: MyText(
-                                    text: "Sign in here.. ",
-                                    size: 16,
-                                    color: Colors.indigo,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left:12.0),
+                                    child: MyText(
+                                      text: "Sign in here.. ",
+                                      size: 18,
+                                      color: Colors.indigo,
+                                      weight: FontWeight.w600,
+                                    ),
                                   )),
                             ],
                           ),

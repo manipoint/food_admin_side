@@ -6,7 +6,7 @@ import 'package:food_admin_side/Screen/home/home_page.dart';
 import 'package:food_admin_side/Screen/login/login.dart';
 import 'package:food_admin_side/Screen/orders.dart';
 import 'package:food_admin_side/Screen/signup/signup.dart';
-import 'package:food_admin_side/Widgets/layout_template.dart';
+import 'package:food_admin_side/main.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -18,10 +18,13 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(OrdersPage());
     case LoginRoute:
       return _getPageRoute(LoginPage());
-    case LayoutRoute:
-      return _getPageRoute(LayoutTemplate());
+
     case SignupRoute:
       return _getPageRoute(SignUp());
+    case PageControllerRoute:
+      return _getPageRoute(AppPagesController());
+    default:
+      return _getPageRoute(LoginPage());
   }
 }
 

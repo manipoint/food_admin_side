@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_admin_side/Helper/constent.dart';
@@ -5,14 +6,17 @@ import 'package:food_admin_side/Helper/def_colors.dart';
 import 'package:food_admin_side/Providers/app_provider.dart';
 import 'package:food_admin_side/Providers/auth_provider.dart';
 import 'package:food_admin_side/Routes/custum_routs.dart';
+import 'package:food_admin_side/Routes/routs_name.dart';
+import 'package:food_admin_side/Screen/home/home_page.dart';
 import 'package:food_admin_side/Screen/login/login.dart';
-import 'package:food_admin_side/Widgets/layout_template.dart';
 import 'package:food_admin_side/Widgets/loading.dart';
 import 'package:provider/provider.dart';
 
 import 'locator.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   setupLocator();
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider.value(
@@ -33,6 +37,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: green),
       onGenerateRoute: generateRoute,
+      initialRoute: PageControllerRoute,
     );
   }
 }
@@ -65,7 +70,7 @@ class AppPagesController extends StatelessWidget {
             case Status.Authenticating:
               return LoginPage();
             case Status.Authenticated:
-              return LayoutTemplate();
+              return HomePage();
           }
         }
         return Scaffold(

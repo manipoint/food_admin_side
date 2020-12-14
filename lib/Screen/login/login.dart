@@ -26,21 +26,21 @@ class _LoginPageState extends State<LoginPage> {
           ? Loading()
           : Scaffold(
               key: _key,
-              backgroundColor: green,
+              backgroundColor: white,
               body: Center(
                 child: Container(
-                  color: red,
+                  // color: red,
                   child: Container(
                     height: 400,
                     width: 350,
                     decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8),
+                        color: Colors.green[100],
+                        borderRadius: BorderRadius.circular(10),
                         boxShadow: [
                           BoxShadow(
-                              color: Colors.grey,
+                              color: Colors.green,
                               offset: Offset(0, 3),
-                              blurRadius: 24)
+                              blurRadius: 8)
                         ]),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -54,7 +54,9 @@ class _LoginPageState extends State<LoginPage> {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20),
                           child: Container(
-                            decoration: BoxDecoration(color: Colors.grey[200]),
+                            decoration: BoxDecoration(
+                                color: Colors.grey[200],
+                                borderRadius: BorderRadius.circular(10)),
                             child: Padding(
                               padding: const EdgeInsets.only(left: 8.0),
                               child: TextField(
@@ -71,7 +73,9 @@ class _LoginPageState extends State<LoginPage> {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20),
                           child: Container(
-                            decoration: BoxDecoration(color: Colors.grey[200]),
+                            decoration: BoxDecoration(
+                                color: Colors.grey[200],
+                                borderRadius: BorderRadius.circular(10)),
                             child: Padding(
                               padding: const EdgeInsets.only(left: 8.0),
                               child: TextField(
@@ -84,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 5),
+                        SizedBox(height: 8),
                         Padding(
                           padding: const EdgeInsets.only(right: 20),
                           child: Row(
@@ -92,8 +96,8 @@ class _LoginPageState extends State<LoginPage> {
                             children: [
                               MyText(
                                 text: "Forgot password?",
-                                size: 16,
-                                color: Colors.grey,
+                                size: 18,
+                                color: Colors.red,
                               ),
                             ],
                           ),
@@ -101,34 +105,39 @@ class _LoginPageState extends State<LoginPage> {
                         SizedBox(
                           height: 40,
                         ),
-                        Container(
-                          decoration: BoxDecoration(color: Colors.indigo),
-                          child: FlatButton(
-                            onPressed: () async {
-                              if (!await authProvider.logIn()) {
-                                ScaffoldMessenger.of(context)
-                                    .showSnackBar(SnackBar(
-                                  content: Text("Login Failed"),
-                                ));
-                                return;
-                              }
-                              authProvider.clearController();
-                              locator<NavigationService>()
-                                  .globelNavigatorTo(LayoutRoute, context);
-                            },
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 4.0),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  MyText(
-                                    weight: FontWeight.bold,
-                                    text: "LOGIN",
-                                    size: 24,
-                                    color: white,
-                                  ),
-                                ],
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Colors.indigo,
+                                borderRadius: BorderRadius.circular(10)),
+                            child: FlatButton(
+                              onPressed: () async {
+                                if (!await authProvider.logIn()) {
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(SnackBar(
+                                    content: Text("Login Failed"),
+                                  ));
+                                  return;
+                                }
+                                authProvider.clearController();
+                                locator<NavigationService>()
+                                    .globelNavigatorTo(HomeRoute, context);
+                              },
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 4.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    MyText(
+                                      weight: FontWeight.bold,
+                                      text: "LOGIN",
+                                      size: 20,
+                                      color: white,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -140,14 +149,23 @@ class _LoginPageState extends State<LoginPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             MyText(
-                              text: "Do Not Have An Account ?",
+                              text: "Do Not Have An Account ? ",
+                              size: 18,
                             ),
                             GestureDetector(
                               onTap: () {
                                 locator<NavigationService>()
-                                    .globelNavigatorTo(SignupRoute,context);
+                                    .globelNavigatorTo(SignupRoute, context);
                               },
-                              child: MyText(text:"Signp",color: Colors.indigo,),
+                              child: Padding(
+                                padding: const EdgeInsets.only(left:4.0),
+                                child: MyText(
+                                  text: "Signup",
+                                  color: Colors.indigo,
+                                  size: 20,
+                                  weight: FontWeight.w600,
+                                ),
+                              ),
                             )
                           ],
                         )
