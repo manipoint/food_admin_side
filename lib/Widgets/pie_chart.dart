@@ -29,7 +29,7 @@ class PieChartWidgetState extends State {
             ),
             Expanded(
               child: AspectRatio(
-                aspectRatio: 1,
+                aspectRatio: 2.3,
                 child: PieChart(
                   PieChartData(
                       pieTouchData: PieTouchData(touchCallback: (pieTouchResponse) {

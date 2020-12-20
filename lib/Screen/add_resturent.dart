@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:food_admin_side/Helper/def_colors.dart';
 
 class AddRestaurant extends StatelessWidget {
   @override
@@ -8,7 +9,9 @@ class AddRestaurant extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Restaurant"),
-      ),
+      )
+      ,
+      body: Container(decoration: BoxDecoration(color: green),),
     );
   }
 }
