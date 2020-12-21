@@ -25,7 +25,7 @@ class DrawerItems extends StatelessWidget {
       MyText(text: title,)],),
          
         onTap: (){
-        locator<NavigationService>().globelNavigatorTo(route, context);
+        locator<NavigationService>().navigateTo(route);
       },),
     );
   }

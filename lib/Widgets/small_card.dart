@@ -22,29 +22,33 @@ class SmallCard extends StatefulWidget {
 class _SmallCardState extends State<SmallCard> {
   @override
   Widget build(BuildContext context) {
+    double cardWidth;
+    double cardHeight;
+    double iconSize;
+    double myFontSize;
     return ResponsiveBuilder(builder: (context, sizeingInformatiom) {
-      double cardWidth =
-          sizeingInformatiom.deviceScreenType == DeviceScreenType.mobile
-              ? 60
-              : 90;
-      double cardHeight =
-          sizeingInformatiom.deviceScreenType == DeviceScreenType.mobile
-              ? 60
-              : 90;
-      double iconSize =
-          sizeingInformatiom.deviceScreenType == DeviceScreenType.mobile
-              ? 30
-              : 60;
-              double myFontSize =
-          sizeingInformatiom.deviceScreenType == DeviceScreenType.mobile
-              ? 20
-              : 40;
-
+      if (sizeingInformatiom.deviceScreenType == DeviceScreenType.mobile) {
+        cardWidth = MediaQuery.of(context).size.width/3;
+        cardHeight = MediaQuery.of(context).size.height/8;
+        iconSize = 30;
+        myFontSize = 20;
+      } else if (sizeingInformatiom.deviceScreenType ==
+          DeviceScreenType.tablet) {
+        cardWidth = MediaQuery.of(context).size.width/5.7;
+        cardHeight = MediaQuery.of(context).size.height/7.5;
+        iconSize = MediaQuery.of(context).size.width/40;
+        myFontSize = MediaQuery.of(context).size.width/38;
+      } else {
+        cardWidth = MediaQuery.of(context).size.width/5.7;
+        cardHeight = MediaQuery.of(context).size.height/6;
+        iconSize = MediaQuery.of(context).size.width/40;
+        myFontSize = MediaQuery.of(context).size.width/40;
+      }
 
       return Stack(
         children: [
           Container(
-            width:cardWidth ,
+            width: cardWidth,
             height: cardHeight,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
@@ -85,13 +89,11 @@ class _SmallCardState extends State<SmallCard> {
                   ],
                 ),
                 Padding(
-                  padding:
-                      const EdgeInsets.only(top: 12.0, left: 2, right: 2),
+                  padding: const EdgeInsets.only(top: 12.0, left: 2, right: 2),
                   child: Text(
                     widget.value.toString(),
                     style: TextStyle(
-                        fontSize: myFontSize,
-                        fontWeight: FontWeight.w700),
+                        fontSize: myFontSize, fontWeight: FontWeight.w700),
                   ),
                 )
               ],

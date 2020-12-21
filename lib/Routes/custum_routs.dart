@@ -1,13 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_admin_side/Routes/routs_name.dart';
+import 'package:food_admin_side/Screen/AddProduct/add_product_mobile.dart';
 import 'package:food_admin_side/Screen/add_category.dart';
-import 'package:food_admin_side/Screen/add_product.dart';
 import 'package:food_admin_side/Screen/add_resturent.dart';
 import 'package:food_admin_side/Screen/home/home_page.dart';
 import 'package:food_admin_side/Screen/login/login.dart';
 import 'package:food_admin_side/Screen/orders.dart';
 import 'package:food_admin_side/Screen/signup/signup.dart';
+import 'package:food_admin_side/Widgets/Layout/layout.dart';
 import 'package:food_admin_side/main.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
@@ -22,6 +23,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(LoginPage());
     case RestaurantRoute:
       return _getPageRoute(AddRestaurant());
+    case LayoutRoute:
+      return _getPageRoute(LayoutWidget());
 
     case SignupRoute:
       return _getPageRoute(SignUp());

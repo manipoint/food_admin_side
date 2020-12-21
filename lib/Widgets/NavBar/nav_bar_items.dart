@@ -6,13 +6,13 @@ import '../../locator.dart';
 class NavBarItem extends StatelessWidget {
   final String title;
   final String route;
-  const NavBarItem({Key key, this.title, this.route}) : super(key: key);
+  const NavBarItem({ this.title, this.route});
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: () {
-        locator<NavigationService>().globelNavigatorTo(route, context);
+        locator<NavigationService>().navigateTo(route);
       },
       child: Text(
         title,

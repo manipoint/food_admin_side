@@ -4,9 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_admin_side/Helper/def_colors.dart';
-import 'package:food_admin_side/Services/cat_services.dart';
-import 'package:food_admin_side/Services/product_services.dart';
-import 'package:food_admin_side/Services/resturent_services.dart';
 import 'package:image_picker/image_picker.dart';
 
 class AddProduct extends StatefulWidget {
@@ -15,9 +12,7 @@ class AddProduct extends StatefulWidget {
 }
 
 class _AddProductState extends State<AddProduct> {
-  Category _categoryServices = Category();
-  Restaurant _restaurantServices = Restaurant();
-  ProductServices _productServices = ProductServices();
+ 
 
   GlobalKey<FormState> _globalKey = GlobalKey<FormState>();
   TextEditingController nameController = TextEditingController();

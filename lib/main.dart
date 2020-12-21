@@ -7,8 +7,8 @@ import 'package:food_admin_side/Providers/app_provider.dart';
 import 'package:food_admin_side/Providers/auth_provider.dart';
 import 'package:food_admin_side/Routes/custum_routs.dart';
 import 'package:food_admin_side/Routes/routs_name.dart';
-import 'package:food_admin_side/Screen/home/home_page.dart';
 import 'package:food_admin_side/Screen/login/login.dart';
+import 'package:food_admin_side/Widgets/Layout/layout.dart';
 import 'package:food_admin_side/Widgets/loading.dart';
 import 'package:provider/provider.dart';
 
@@ -70,7 +70,7 @@ class AppPagesController extends StatelessWidget {
             case Status.Authenticating:
               return LoginPage();
             case Status.Authenticated:
-              return HomePage();
+              return LayoutWidget();
           }
         }
         return Scaffold(
