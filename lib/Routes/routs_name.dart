@@ -1,6 +1,7 @@
 const String HomeRoute = "home";
 const String LayoutRoute = "layout";
 const String ProductRoute = "product";
+const String WebProductRoute = "webproduct";
 const String UserRoute = "users";
 const String OrderRoute = "order";
 const String RestaurantRoute = "restaurant";

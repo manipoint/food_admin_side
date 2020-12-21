@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_admin_side/Routes/routs_name.dart';
 import 'package:food_admin_side/Screen/AddProduct/add_product_mobile.dart';
+import 'package:food_admin_side/Screen/AddProduct/add_product_web.dart';
 import 'package:food_admin_side/Screen/add_category.dart';
 import 'package:food_admin_side/Screen/add_resturent.dart';
 import 'package:food_admin_side/Screen/home/home_page.dart';
@@ -17,6 +18,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(HomePage());
     case ProductRoute:
       return _getPageRoute(AddProduct());
+    case WebProductRoute:
+      return _getPageRoute(AddProductWeb());
     case OrderRoute:
       return _getPageRoute(OrdersPage());
     case LoginRoute:

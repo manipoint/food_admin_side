@@ -4,7 +4,7 @@ import 'package:food_admin_side/Widgets/NavBar/nav_bar_items.dart';
 
 import 'nav_bar_logo.dart';
 
-class NavigationBarT extends StatelessWidget {
+class NavigationBarTablet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(

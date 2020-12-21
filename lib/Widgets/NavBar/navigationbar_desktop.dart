@@ -17,7 +17,7 @@ class NavigationBarDesktop extends StatelessWidget {
           route: HomeRoute,
           title: "Home",),
           NavBarItem(
-            route: ProductRoute,
+            route: WebProductRoute,
             title: "AddProduct",
           ),
           NavBarItem(
