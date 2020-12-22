@@ -14,7 +14,7 @@ class CustomNavigationDrawer extends StatelessWidget {
       decoration: BoxDecoration(
         color: green.withOpacity(.3),
         boxShadow: [
-          BoxShadow(blurRadius:16 ,color: white)
+          BoxShadow(blurRadius:8 ,color: white)
         ]
       ),
       child: Column(

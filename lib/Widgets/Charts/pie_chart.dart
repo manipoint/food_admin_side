@@ -2,16 +2,12 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:food_admin_side/Widgets/indicator.dart';
 
-
-
-class PieChartWidget extends StatefulWidget {
-
-
+class NewPieChart extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => PieChartWidgetState();
+  State<StatefulWidget> createState() => NewPieChartState();
 }
 
-class PieChartWidgetState extends State {
+class NewPieChartState extends State {
   int touchedIndex;
 
   @override
@@ -19,9 +15,8 @@ class PieChartWidgetState extends State {
     return AspectRatio(
       aspectRatio: 1.3,
       child: Card(
-        color: Colors.green.shade50,
-        elevation: 0.0,
-        //shadowColor: Colors.purpleAccent,
+       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+        color: Colors.green.shade100,
         child: Row(
           children: <Widget>[
             const SizedBox(
@@ -29,7 +24,7 @@ class PieChartWidgetState extends State {
             ),
             Expanded(
               child: AspectRatio(
-                aspectRatio: 2.3,
+                aspectRatio: 1,
                 child: PieChart(
                   PieChartData(
                       pieTouchData: PieTouchData(touchCallback: (pieTouchResponse) {
@@ -57,33 +52,33 @@ class PieChartWidgetState extends State {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const <Widget>[
                 Indicator(
-                  color: Colors.blue,
+                  color: Color(0xff0293ee),
                   text: 'First',
-                  isSquare: false,
+                  isSquare: true,
                 ),
                 SizedBox(
                   height: 4,
                 ),
                 Indicator(
-                  color: Colors.yellow,
+                  color: Color(0xfff8b250),
                   text: 'Second',
-                  isSquare: false,
+                  isSquare: true,
                 ),
                 SizedBox(
                   height: 4,
                 ),
                 Indicator(
-                  color: Colors.purpleAccent,
+                  color: Color(0xff845bef),
                   text: 'Third',
-                  isSquare: false,
+                  isSquare: true,
                 ),
                 SizedBox(
                   height: 4,
                 ),
                 Indicator(
-                  color: Colors.green,
+                  color: Color(0xff13d38e),
                   text: 'Fourth',
-                  isSquare: false,
+                  isSquare: true,
                 ),
                 SizedBox(
                   height: 18,
@@ -91,7 +86,7 @@ class PieChartWidgetState extends State {
               ],
             ),
             const SizedBox(
-              width: 10,
+              width: 28,
             ),
           ],
         ),
@@ -107,7 +102,7 @@ class PieChartWidgetState extends State {
       switch (i) {
         case 0:
           return PieChartSectionData(
-            color: Colors.blue,
+            color: const Color(0xff0293ee),
             value: 40,
             title: '40%',
             radius: radius,
@@ -116,7 +111,7 @@ class PieChartWidgetState extends State {
           );
         case 1:
           return PieChartSectionData(
-            color: Colors.yellow.shade700,
+            color: const Color(0xfff8b250),
             value: 30,
             title: '30%',
             radius: radius,
@@ -125,7 +120,7 @@ class PieChartWidgetState extends State {
           );
         case 2:
           return PieChartSectionData(
-            color: Colors.purpleAccent,
+            color: const Color(0xff845bef),
             value: 15,
             title: '15%',
             radius: radius,
@@ -134,7 +129,7 @@ class PieChartWidgetState extends State {
           );
         case 3:
           return PieChartSectionData(
-            color: Colors.green.shade300,
+            color: const Color(0xff13d38e),
             value: 15,
             title: '15%',
             radius: radius,

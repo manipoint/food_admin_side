@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:food_admin_side/Helper/def_colors.dart';
+import 'package:food_admin_side/Widgets/Charts/bar_chart.dart';
+import 'package:food_admin_side/Widgets/Charts/pie_chart.dart';
+import 'package:food_admin_side/Widgets/Charts/sales_chart.dart';
+import 'package:food_admin_side/Widgets/Charts/transection_chart.dart';
 import 'package:food_admin_side/Widgets/small_card.dart';
 
 class TabletMode extends StatefulWidget {
@@ -51,7 +55,57 @@ class _TabletModeState extends State<TabletMode> {
                   )
                 ],
               ),
-            )
+            ),
+             SizedBox(height: 30,),
+            Row(
+           mainAxisAlignment: MainAxisAlignment.center,
+           children: [
+             SizedBox(width: 10,),
+            Container(
+              height: MediaQuery.of(context).size.height/2.5,
+              width: MediaQuery.of(context).size.width/2.3,
+              decoration: BoxDecoration(
+                color: Colors.white
+              ),
+              child: NewPieChart(),
+            ),
+            SizedBox(width: 10,),
+            Container(
+              height:MediaQuery.of(context).size.height/2.5,
+              width: MediaQuery.of(context).size.width/2.3,
+              decoration: BoxDecoration(
+                color: Colors.white
+              ),
+              child: BarChartWidget(),
+            ),
+            
+           ],
+         ),
+          SizedBox(height: 30,),
+           Row(
+             mainAxisAlignment: MainAxisAlignment.center,
+             children: [
+               SizedBox(width: 10,),
+            Container(
+              height: MediaQuery.of(context).size.height/2.5,
+              width: MediaQuery.of(context).size.width/2.3,
+              decoration: BoxDecoration(
+                color: Colors.white
+              ),
+               child: TransectionChart(),
+            ),SizedBox(width: 10,),
+            Container(
+              height: MediaQuery.of(context).size.height/2.5,
+              width: MediaQuery.of(context).size.width/2.3,
+              decoration: BoxDecoration(
+                color: Colors.white
+              ),
+              child: SalesChart()
+             ,
+            ),
+  
+             ],
+           )
           ],
         ),
       ),

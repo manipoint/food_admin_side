@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:food_admin_side/Helper/def_colors.dart';
+import 'package:food_admin_side/Widgets/Charts/bar_chart.dart';
+import 'package:food_admin_side/Widgets/Charts/pie_chart.dart';
+import 'package:food_admin_side/Widgets/Charts/sales_chart.dart';
+import 'package:food_admin_side/Widgets/Charts/transection_chart.dart';
 import 'package:food_admin_side/Widgets/small_card.dart';
 
 class MobileMode extends StatefulWidget {
@@ -8,59 +12,82 @@ class MobileMode extends StatefulWidget {
 }
 
 class _MobileModeState extends State<MobileMode> {
-
   @override
   Widget build(BuildContext context) {
-  
     return Scaffold(
-      body:SingleChildScrollView(
-            child: Column(
+      body: SingleChildScrollView(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-         Padding(
-           padding: const EdgeInsets.symmetric(vertical:20.0),
-           child: Row(
-             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-             children: [
-              SmallCard(color1: white,
-              color2: Colors.green.shade300,
-              icon: Icons.attach_money
-              ,title: "Revanue",
-              value: 100000,),
-                 SmallCard(color1: white,
-              color2: Colors.green.shade300,
-              icon: Icons.attach_money
-              ,title: "Revanue",
-              value: 100000,),
-              
-            
-           ],),
-           
-         ),
-         Padding(
-           padding: const EdgeInsets.symmetric(vertical:20.0),
-           child: Row(
-             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-             children: [
-              SmallCard(color1: white,
-              color2: Colors.green.shade300,
-              icon: Icons.attach_money
-              ,title: "Mobile",
-              value: 100000,),
-                 SmallCard(color1: white,
-              color2: Colors.green.shade300,
-              icon: Icons.attach_money
-              ,title: "Revanue",
-              value: 100000,),
-              
-            
-           ],),
-           
-         ),
-         
-           
-        ],),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SmallCard(
+                    color1: white,
+                    color2: Colors.green.shade300,
+                    icon: Icons.attach_money,
+                    title: "Revanue",
+                    value: 100000,
+                  ),
+                  SmallCard(
+                    color1: white,
+                    color2: Colors.green.shade300,
+                    icon: Icons.attach_money,
+                    title: "Revanue",
+                    value: 100000,
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SmallCard(
+                    color1: white,
+                    color2: Colors.green.shade300,
+                    icon: Icons.attach_money,
+                    title: "Mobile",
+                    value: 100000,
+                  ),
+                  SmallCard(
+                    color1: white,
+                    color2: Colors.green.shade300,
+                    icon: Icons.attach_money,
+                    title: "Revanue",
+                    value: 100000,
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 10,),
+            Container(
+              height: MediaQuery.of(context).size.height/2,
+              width: MediaQuery.of(context).size.width/1.2,
+              child: NewPieChart(),
+            ),
+            SizedBox(height: 10,),
+            Container(
+              height: MediaQuery.of(context).size.height/2,
+              width: MediaQuery.of(context).size.width/1.2,
+              child: TransectionChart(),
+            ),SizedBox(height: 10,),
+            Container(
+              height: MediaQuery.of(context).size.height/2,
+              width: MediaQuery.of(context).size.width/1.2,
+              child: SalesChart(),
+            ),SizedBox(height: 10,),
+            Container(
+              height: MediaQuery.of(context).size.height/2,
+              width: MediaQuery.of(context).size.width/1.2,
+              child: BarChartWidget(),
+            ),
+          ],
+        ),
       ),
     );
   }
