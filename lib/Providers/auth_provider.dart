@@ -68,7 +68,7 @@ class AuthProvider with ChangeNotifier {
           .then((result) async {
         SharedPreferences preferences = await SharedPreferences.getInstance();
         await preferences.setString("id", result.user.uid);
-        _userServices.createUser(
+        _userServices.createAdmin(
             id: result.user.uid,
             name: name.text.trim(),
             email: email.text.trim());
@@ -96,7 +96,7 @@ class AuthProvider with ChangeNotifier {
   }
 
   Future<void> reloadUser() async {
-    _userModel = await _userServices.getUserById(user.uid);
+    _userModel = await _userServices.getAdminById(user.uid);
     notifyListeners();
   }
 
@@ -112,7 +112,7 @@ class AuthProvider with ChangeNotifier {
       _user = firebaseUser;
       await preferences.setString("id", firebaseUser.uid);
 
-      _userModel = await _userServices.getUserById(user.uid).then((value) {
+      _userModel = await _userServices.getAdminById(user.uid).then((value) {
         _status = Status.Authenticated;
         return value;
       });

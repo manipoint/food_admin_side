@@ -39,17 +39,7 @@ class SalesChartState extends State<SalesChart> {
                 const SizedBox(
                   height: 37,
                 ),
-                const Text(
-                  'Unfold Shop 2018',
-                  style: TextStyle(
-                    color: Color(0xff827daa),
-                    fontSize: 16,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(
-                  height: 4,
-                ),
+               
                 const Text(
                   'Monthly Sales',
                   style: TextStyle(

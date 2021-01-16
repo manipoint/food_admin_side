@@ -1,25 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:food_admin_side/Helper/def_colors.dart';
 
-import 'nav_bar_logo.dart';
 
 class NavigationBarMobile extends StatelessWidget {
-  const NavigationBarMobile({Key key}) : super(key: key);
+  final GlobalKey<ScaffoldState> scaffoldState;
+
+  const NavigationBarMobile({Key key, this.scaffoldState}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 80,
+      color: Colors.transparent,
+      height: 40,
       child: Row(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           IconButton(
-            icon: Icon(Icons.menu),
+            icon: Icon(Icons.menu,color: black,),
             onPressed: () {
              // CustomNavigationDrawer();
             },
           ),
-          NavBarLogo()
+          //NavBarLogo()
         ],
       ),
     );

@@ -2,9 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_admin_side/Helper/constent.dart';
-import 'package:food_admin_side/Helper/def_colors.dart';
 import 'package:food_admin_side/Providers/app_provider.dart';
 import 'package:food_admin_side/Providers/auth_provider.dart';
+import 'package:food_admin_side/Providers/tabels.dart';
 import 'package:food_admin_side/Routes/custum_routs.dart';
 import 'package:food_admin_side/Routes/routs_name.dart';
 import 'package:food_admin_side/Screen/login/login.dart';
@@ -12,6 +12,7 @@ import 'package:food_admin_side/Widgets/Layout/layout.dart';
 import 'package:food_admin_side/Widgets/loading.dart';
 import 'package:provider/provider.dart';
 
+import 'Providers/tabels.dart';
 import 'locator.dart';
 
 void main() async {
@@ -25,6 +26,9 @@ void main() async {
     ChangeNotifierProvider.value(
       value: AuthProvider.initialize(),
     ),
+    ChangeNotifierProvider.value(
+      value: TablesProvider.init(),
+    ),
   ], child: MyApp()));
 }
 
@@ -32,10 +36,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-   // throw UnimplementedError();
+    // throw UnimplementedError();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: green),
+      theme: ThemeData(primarySwatch: Colors.green),
       onGenerateRoute: generateRoute,
       initialRoute: PageControllerRoute,
     );
@@ -43,7 +47,7 @@ class MyApp extends StatelessWidget {
 }
 
 class AppPagesController extends StatelessWidget {
-  const AppPagesController({Key key}) : super(key: key);
+  // const AppPagesController({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

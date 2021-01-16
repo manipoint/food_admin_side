@@ -9,3 +9,6 @@ const String CategoryRoute = "category";
 const String PageControllerRoute = "page";
 const String LoginRoute = "login";
 const String SignupRoute = "signup";
+const String EditRoute = "edit";
+const String EditWebRoute = "editweb";
+const String DeleteRoute = "delete";

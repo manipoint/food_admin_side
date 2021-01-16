@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:food_admin_side/Helper/def_colors.dart';
+import 'package:food_admin_side/Widgets/Card/small_card.dart';
 import 'package:food_admin_side/Widgets/Charts/bar_chart.dart';
-import 'package:food_admin_side/Widgets/Charts/pie_chart.dart';
 import 'package:food_admin_side/Widgets/Charts/sales_chart.dart';
+import 'package:food_admin_side/Widgets/Charts/pie_chart.dart';
 import 'package:food_admin_side/Widgets/Charts/transection_chart.dart';
-import 'package:food_admin_side/Widgets/small_card.dart';
 
 class MobileMode extends StatefulWidget {
   @override
@@ -22,53 +22,29 @@ class _MobileModeState extends State<MobileMode> {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SmallCard(
-                    color1: white,
-                    color2: Colors.green.shade300,
-                    icon: Icons.attach_money,
-                    title: "Revanue",
-                    value: 100000,
-                  ),
-                  SmallCard(
-                    color1: white,
-                    color2: Colors.green.shade300,
-                    icon: Icons.attach_money,
-                    title: "Revanue",
-                    value: 100000,
-                  ),
-                ],
-              ),
+              child: SmallCard(
+            icon:Icons.monetization_on_outlined,
+            title: "Revenue",
+            subTitle: "Revenue this month",
+            value: "12000",//Rs ${appProvider.revenue}
+            color1: green.withOpacity(.7),
+            color2: green,),  
             ),
-            Padding(
+             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SmallCard(
-                    color1: white,
-                    color2: Colors.green.shade300,
-                    icon: Icons.attach_money,
-                    title: "Mobile",
-                    value: 100000,
-                  ),
-                  SmallCard(
-                    color1: white,
-                    color2: Colors.green.shade300,
-                    icon: Icons.attach_money,
-                    title: "Revanue",
-                    value: 100000,
-                  ),
-                ],
-              ),
+              child: SmallCard(
+            icon:Icons.monetization_on_outlined,
+            title: "Orders",
+            subTitle: "Total orders",
+            value: "12000",//Rs ${appProvider.revenue}
+            color1: Colors.lightBlueAccent,
+            color2: Colors.blue,),  
             ),
             SizedBox(height: 10,),
             Container(
               height: MediaQuery.of(context).size.height/2,
               width: MediaQuery.of(context).size.width/1.2,
-              child: NewPieChart(),
+             child: NewPieChart(),
             ),
             SizedBox(height: 10,),
             Container(

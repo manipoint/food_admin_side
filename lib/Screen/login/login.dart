@@ -59,7 +59,8 @@ class _LoginPageState extends State<LoginPage> {
                                 borderRadius: BorderRadius.circular(10)),
                             child: Padding(
                               padding: const EdgeInsets.only(left: 8.0),
-                              child: TextField(
+                              child: TextFormField(
+                                validator: (val) => val==""?val:null,
                                 controller: authProvider.email,
                                 decoration: InputDecoration(
                                     border: InputBorder.none,
@@ -122,7 +123,7 @@ class _LoginPageState extends State<LoginPage> {
                                 }
                                 authProvider.clearController();
                                 locator<NavigationService>()
-                                    .globelNavigatorTo(HomeRoute, context);
+                                    .globelNavigatorTo(LayoutRoute, context);
                               },
                               child: Padding(
                                 padding:

@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:food_admin_side/Helper/constent.dart';
+import 'package:food_admin_side/Model/category_model.dart';
 import 'package:uuid/uuid.dart';
 
-class Category {
+class CategoryServices {
   FirebaseFirestore _firestore = FirebaseFirestore.instance;
   String collection = "category";
   void createCategory(String categoryName) {
@@ -21,4 +23,12 @@ class Category {
       .where('category', isEqualTo: suggession)
       .get()
       .then((value) => value.docs);
+       Future<List<CategoriesModel>> getAll() async =>
+      firebaseFirestore.collection(collection).get().then((result) {
+        List<CategoriesModel> categories = [];
+        for (DocumentSnapshot category in result.docs) {
+          categories.add(CategoriesModel.fromSnapshot(category));
+        }
+        return categories;
+      });
 }

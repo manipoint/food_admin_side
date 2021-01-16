@@ -14,8 +14,9 @@ class NavigationBarDesktop extends StatelessWidget {
         children: [
           NavBarLogo(),
           NavBarItem(
-          route: HomeRoute,
-          title: "Home",),
+            route: HomeRoute,
+            title: "Home",
+          ),
           NavBarItem(
             route: WebProductRoute,
             title: "AddProduct",
@@ -29,10 +30,10 @@ class NavigationBarDesktop extends StatelessWidget {
             title: "Categories",
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 8.0),
+            padding: const EdgeInsets.only(right: 16.0),
             child: NavBarItem(
               route: RestaurantRoute,
-              title: "Add Resturent",
+              title: "Sign Out",
             ),
           )
         ],

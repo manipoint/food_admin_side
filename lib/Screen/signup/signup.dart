@@ -90,6 +90,7 @@ class SignUp extends StatelessWidget {
                               padding: const EdgeInsets.only(left: 8.0),
                               child: TextField(
                                 controller: authProvider.password,
+                                
                                 decoration: InputDecoration(
                                     border: InputBorder.none,
                                     hintText: 'Password',

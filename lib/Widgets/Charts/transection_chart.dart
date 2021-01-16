@@ -68,16 +68,18 @@ class TransectionChartState extends State<TransectionChart> {
                   ),
                   const Text(
                     'Transactions',
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
-                  const SizedBox(
-                    width: 4,
-                  ),
-                  const Text(
-                    'state',
-                    style: TextStyle(color: Color(0xff77839a), fontSize: 14),
+                    style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                 ],
+              ),
+              
+              Text(
+                'State',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 14,
+                ),
+                textAlign: TextAlign.center,
               ),
               const SizedBox(
                 height: 38,
@@ -102,7 +104,8 @@ class TransectionChartState extends State<TransectionChart> {
                               return;
                             }
 
-                            touchedGroupIndex = response.spot.touchedBarGroupIndex;
+                            touchedGroupIndex =
+                                response.spot.touchedBarGroupIndex;
 
                             setState(() {
                               if (response.touchInput is FlLongPressEnd ||
@@ -114,15 +117,21 @@ class TransectionChartState extends State<TransectionChart> {
                                 if (touchedGroupIndex != -1) {
                                   double sum = 0;
                                   for (BarChartRodData rod
-                                      in showingBarGroups[touchedGroupIndex].barRods) {
+                                      in showingBarGroups[touchedGroupIndex]
+                                          .barRods) {
                                     sum += rod.y;
                                   }
-                                  final avg =
-                                      sum / showingBarGroups[touchedGroupIndex].barRods.length;
+                                  final avg = sum /
+                                      showingBarGroups[touchedGroupIndex]
+                                          .barRods
+                                          .length;
 
                                   showingBarGroups[touchedGroupIndex] =
-                                      showingBarGroups[touchedGroupIndex].copyWith(
-                                    barRods: showingBarGroups[touchedGroupIndex].barRods.map((rod) {
+                                      showingBarGroups[touchedGroupIndex]
+                                          .copyWith(
+                                    barRods: showingBarGroups[touchedGroupIndex]
+                                        .barRods
+                                        .map((rod) {
                                       return rod.copyWith(y: avg);
                                     }).toList(),
                                   );
@@ -135,7 +144,9 @@ class TransectionChartState extends State<TransectionChart> {
                         bottomTitles: SideTitles(
                           showTitles: true,
                           getTextStyles: (value) => const TextStyle(
-                              color: Color(0xff7589a2), fontWeight: FontWeight.bold, fontSize: 14),
+                              color: Color(0xff7589a2),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14),
                           margin: 20,
                           getTitles: (double value) {
                             switch (value.toInt()) {
@@ -161,7 +172,9 @@ class TransectionChartState extends State<TransectionChart> {
                         leftTitles: SideTitles(
                           showTitles: true,
                           getTextStyles: (value) => const TextStyle(
-                              color: Color(0xff7589a2), fontWeight: FontWeight.bold, fontSize: 14),
+                              color: Color(0xff7589a2),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14),
                           margin: 32,
                           reservedSize: 14,
                           getTitles: (value) {

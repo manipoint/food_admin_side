@@ -1,113 +1,72 @@
 import 'package:flutter/material.dart';
-import 'package:food_admin_side/Helper/def_colors.dart';
+import 'package:food_admin_side/Widgets/Card/card_list.dart';
 import 'package:food_admin_side/Widgets/Charts/bar_chart.dart';
 import 'package:food_admin_side/Widgets/Charts/pie_chart.dart';
 import 'package:food_admin_side/Widgets/Charts/sales_chart.dart';
 import 'package:food_admin_side/Widgets/Charts/transection_chart.dart';
-import 'package:food_admin_side/Widgets/small_card.dart';
 
-class TabletMode extends StatefulWidget {
-  @override
-  _TabletModeState createState() => _TabletModeState();
-}
-
-class _TabletModeState extends State<TabletMode> {
+class TabletMode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SmallCard(
-                    color1: white,
-                    color2: Colors.green.shade300,
-                    icon: Icons.attach_money,
-                    title: "Revanue",
-                    value: 100000,
-                  ),
-                  SmallCard(
-                    color1: white,
-                    color2: Colors.green.shade300,
-                    icon: Icons.attach_money,
-                    title: "tablet",
-                    value: 100000,
-                  ),
-                  SmallCard(
-                    color1: white,
-                    color2: Colors.green.shade300,
-                    icon: Icons.attach_money,
-                    title: "Tablet",
-                    value: 100000,
-                  ),
-                  SmallCard(
-                    color1: white,
-                    color2: Colors.green.shade300,
-                    icon: Icons.attach_money,
-                    title: "Tablet",
-                    value: 100000,
-                  )
-                ],
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          CardList(),
+          SizedBox(
+            height: 30,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 10,
               ),
-            ),
-             SizedBox(height: 30,),
-            Row(
-           mainAxisAlignment: MainAxisAlignment.center,
-           children: [
-             SizedBox(width: 10,),
-            Container(
-              height: MediaQuery.of(context).size.height/2.5,
-              width: MediaQuery.of(context).size.width/2.3,
-              decoration: BoxDecoration(
-                color: Colors.white
+              Container(
+                height: MediaQuery.of(context).size.height / 2.5,
+                width: MediaQuery.of(context).size.width / 3,
+                decoration: BoxDecoration(color: Colors.white),
+                child: NewPieChart(),
               ),
-              child: NewPieChart(),
-            ),
-            SizedBox(width: 10,),
-            Container(
-              height:MediaQuery.of(context).size.height/2.5,
-              width: MediaQuery.of(context).size.width/2.3,
-              decoration: BoxDecoration(
-                color: Colors.white
+              SizedBox(
+                width: 10,
               ),
-              child: BarChartWidget(),
-            ),
-            
-           ],
-         ),
-          SizedBox(height: 30,),
-           Row(
-             mainAxisAlignment: MainAxisAlignment.center,
-             children: [
-               SizedBox(width: 10,),
-            Container(
-              height: MediaQuery.of(context).size.height/2.5,
-              width: MediaQuery.of(context).size.width/2.3,
-              decoration: BoxDecoration(
-                color: Colors.white
+              Container(
+                height: MediaQuery.of(context).size.height / 2.5,
+                width: MediaQuery.of(context).size.width / 3,
+                decoration: BoxDecoration(color: Colors.white),
+                child: BarChartWidget(),
               ),
-               child: TransectionChart(),
-            ),SizedBox(width: 10,),
-            Container(
-              height: MediaQuery.of(context).size.height/2.5,
-              width: MediaQuery.of(context).size.width/2.3,
-              decoration: BoxDecoration(
-                color: Colors.white
+            ],
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 10,
               ),
-              child: SalesChart()
-             ,
-            ),
-  
-             ],
-           )
-          ],
-        ),
+              Container(
+                height: MediaQuery.of(context).size.height / 2.5,
+                width: MediaQuery.of(context).size.width / 3,
+                decoration: BoxDecoration(color: Colors.white),
+                child: TransectionChart(),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height / 2.5,
+                width: MediaQuery.of(context).size.width / 3,
+                decoration: BoxDecoration(color: Colors.white),
+                child: SalesChart(),
+              ),
+            ],
+          )
+        ],
       ),
     );
   }

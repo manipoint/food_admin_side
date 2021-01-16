@@ -24,7 +24,7 @@ class NewPieChartState extends State {
             ),
             Expanded(
               child: AspectRatio(
-                aspectRatio: 1,
+                aspectRatio: .87,
                 child: PieChart(
                   PieChartData(
                       pieTouchData: PieTouchData(touchCallback: (pieTouchResponse) {
@@ -86,7 +86,7 @@ class NewPieChartState extends State {
               ],
             ),
             const SizedBox(
-              width: 28,
+              width: 4,
             ),
           ],
         ),
@@ -97,8 +97,8 @@ class NewPieChartState extends State {
   List<PieChartSectionData> showingSections() {
     return List.generate(4, (i) {
       final isTouched = i == touchedIndex;
-      final double fontSize = isTouched ? 25 : 16;
-      final double radius = isTouched ? 60 : 50;
+      final double fontSize = isTouched ? 20 : 12;
+      final double radius = isTouched ? 50 : 40;
       switch (i) {
         case 0:
           return PieChartSectionData(
